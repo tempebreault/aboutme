@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alex Breault | About Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b, #020617);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(2,6,23,0.9);
+      padding: 10px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: #e2e8f0;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #38bdf8;
+    }
+
+    .highlight {
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+    }
+
+    /* Fade-in animation */
+    .hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#company">Company</a>
+  <a href="#projects">Projects</a>
+  <a href="#media">Media</a>
+</nav>
+
+<header>
+  <h1>Alex Breault</h1>
+  <p>26-Year-Old Retired Entrepreneur | Multi-Million Net Worth</p>
+</header>
+
+<section id="about" class="hidden">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I'm <span class="highlight">Alex Breault</span>, a 26-year-old retired entrepreneur
+      with a <span class="highlight">multi-million dollar net worth</span>.
+      I began my entrepreneurial journey in 2023, quickly scaling multiple projects
+      and building a strong digital presence.
+    </p>
+  </div>
+</section>
+
+<section id="company" class="hidden">
+  <h2>My Company</h2>
+  <div class="card">
+    <p>
+      I founded <span class="highlight">TempéBreault</span> in 2023, which became the
+      foundation for several innovative ventures.
+    </p>
+    <p>
+      The company successfully launched the app <span class="highlight">"Live Weather"</span>,
+      which achieved over <span class="highlight">1M+ downloads</span> on Google Play and
+      generated approximately <span class="highlight">$100,000 CAD in continuous yearly revenue</span>.
+    </p>
+    <p>
+      After its success, I sold TempéBreault on <span class="highlight">March 20, 2026</span>.
+    </p>
+  </div>
+</section>
+
+<section id="projects" class="hidden">
+  <h2>Projects & Subsidiaries</h2>
+  <div class="card">
+    <p>
+      Under TempéBreault, I developed multiple projects simultaneously, including subsidiaries such as:
+    </p>
+    <ul>
+      <li>MindMosaic</li>
+      <li>BHealthPulse</li>
+    </ul>
+  </div>
+</section>
+
+<section id="media" class="hidden">
+  <h2>Media & Current Work</h2>
+  <div class="card">
+    <p>
+      I also run a YouTube channel titled <span class="highlight">GeoBlend (@rlgeoblend)</span>,
+      where I’ve gained over <span class="highlight">1,000 subscribers</span> and
+      <span class="highlight">300,000+ total views</span>.
+    </p>
+    <p>
+      Currently, I’m experimenting with <span class="highlight">After Effects editing</span>
+      for my TikTok content, exploring creative storytelling and visual effects.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Alex Breault</p>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll("nav a").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href"))
+        .scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Fade-in animation on scroll
+  const hiddenElements = document.querySelectorAll(".hidden");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+
+  hiddenElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
